@@ -23,5 +23,45 @@ const getUserChoice = (userInput) => {
     }
   }
   
-  console.log(getComputerChoice());
-  
+  function determineWinner(getUserChoice,getComputerChoice){
+    if (getUserChoice === getComputerChoice){
+      return ("It's a tie");
+    }
+
+    if (getUserChoice === 'rock'){
+      if (getComputerChoice === 'paper'){
+        return "The computer won!";
+      } else {
+        return "You won!";
+      }
+    }
+
+    if (getUserChoice === 'paper'){
+      if (getComputerChoice === 'scissors'){
+        return "Computer won!";
+      } else {
+        return "You won!";
+      }
+    }
+
+    if (getUserChoice === 'scissors'){
+      if (getComputerChoice === 'rock'){
+        return 'Computer won!'
+      } else {
+        return 'You won!'
+      }
+    }
+  }
+
+
+  const playGame = () => {
+    const userChoice = getUserChoice('scissors');
+    const computerChoice = getComputerChoice();
+
+    console.log('You threw ' + userChoice);
+    console.log('Computer threw '+ computerChoice);
+
+    console.log(determineWinner(userChoice, computerChoice));
+  }
+
+  playGame();
